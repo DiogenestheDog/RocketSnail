@@ -61,5 +61,5 @@ typings/
 .next
 
 # webpack
-bundle.js
-bundle.js.map
+# bundle.js
+# bundle.js.map
