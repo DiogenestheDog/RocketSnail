@@ -1,0 +1,27 @@
+{
+  "name": "rocketsnail",
+  "version": "1.0.0",
+  "description": "Gradius-like side-scrolling shoot-em-up",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiogenestheDog/RocketSnail.git"
+  },
+  "author": "Ryan Guthrie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiogenestheDog/RocketSnail/issues"
+  },
+  "homepage": "https://github.com/DiogenestheDog/RocketSnail#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  }
+}
