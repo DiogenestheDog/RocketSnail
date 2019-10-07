@@ -199,6 +199,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     erase();
     sprite.ctx.drawImage(sprite.image, sprite.sheetX, sprite.sheetY, 64, 64, sprite.x, sprite.y, 64, 64);
+    sprite.sheetX = (sprite.sheetX + 64) % 256;
   }
 
   var rocketSnail = new Sprite("./src/images/rocket_snail.png", 0, 0, 64, 64, ctx);
@@ -210,41 +211,13 @@ window.addEventListener('DOMContentLoaded', function () {
   var tracker = new InputTracker();
 
   var gameLoop = function gameLoop(timestamp) {
-    var start = start || timestamp;
-    var progress = timestamp - start;
-
-    if (progress < 4000) {
-      erase();
-      moveSprite(rocketSnail, tracker);
-      window.requestAnimationFrame(gameLoop);
-    }
+    // look into throttling this
+    erase();
+    moveSprite(rocketSnail, tracker);
+    window.requestAnimationFrame(gameLoop);
   };
 
-  window.requestAnimationFrame(gameLoop); // const rocketMover = moveSprite(sprite, tracker).bind(this);
-  // window.addEventListener("keydown", function(e) {
-  //     erase();
-  //     rocketSnail.ctx.drawImage(rocketSnail.image, rocketSnail.sheetX,
-  //         rocketSnail.sheetY, 64, 64, rocketSnail.x, rocketSnail.y, 64, 64);
-  // }.bind(this));
-  // window.addEventListener("keydown", e => {
-  //     // is composing
-  //     console.log("woof");
-  //     if (e.keyCode === 65 || e.keyCode === 37) {
-  //        rocketSnail.x--;
-  //     }
-  //     if (e.keyCode === 68 || e.keyCode === 39) {
-  //        rocketSnail.x++;
-  //     }
-  //     if (e.keyCode === 83 || e.keyCode === 40) {
-  //        rocketSnail.y++;
-  //     }
-  //     if (e.keyCode === 87 || e.keyCode === 38) {
-  //        rocketSnail.y--;
-  //     }
-  //     erase();
-  //     rocketSnail.ctx.drawImage(rocketSnail.image, rocketSnail.sheetX,
-  //         rocketSnail.sheetY, 64, 64, rocketSnail.x, rocketSnail.y, 64, 64);
-  // });
+  window.requestAnimationFrame(gameLoop);
 });
 
 /***/ })
