@@ -109,7 +109,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const gameLoop = (timestamp) => {
 
         // look into throttling this
-
+        secondsPassed = (timestamp - oldTimeStamp) / 1000;
+        oldTimeStamp = timestamp;
+    
+        // Calculate fps
+        fps = Math.round(1 / secondsPassed);
+        console.log(fps)
             erase();
             moveSprite(rocketSnail, tracker);
             window.requestAnimationFrame(gameLoop);
